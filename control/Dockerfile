@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:24.04
 RUN whoami
 
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
@@ -28,7 +28,7 @@ COPY ansible ansible
 RUN python3 -m virtualenv ve
 
 RUN /ve/bin/pip install pyjwt cryptography ipython credstash deepmerge PyYaml
-RUN /ve/bin/pip install -e git+https://github.com/Phonebooth/api-client.git#egg=api-client
+RUN /ve/bin/pip install -e git+https://github.com/Phonebooth/api-client.git#egg=apiclient
 RUN /ve/bin/pip install -e git+https://github.com/relaypro-open/dog_api_python.git#egg=dog_api_python
 RUN ansible-galaxy collection install git+https://github.com/relaypro-open/community.dog.git
 COPY dog.yml /ansible/dog.yml
