@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM docker.io/ubuntu:24.04
 RUN whoami
 
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
