@@ -1,4 +1,4 @@
-FROM nginx
+FROM docker.io/nginx
 
 RUN mkdir /usr/share/nginx/html/flan_api/
 COPY flan_ips /usr/share/nginx/html/flan_api/external/undefined/
