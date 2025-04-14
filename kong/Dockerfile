@@ -1,4 +1,5 @@
-FROM kong/kong:latest-ubuntu
+#FROM kong/kong:latest-ubuntu
+FROM docker.io/kong/kong:2.8-ubuntu
 
 RUN whoami
 
@@ -7,9 +8,9 @@ RUN apt-get update && apt-get install -y curl vim-tiny httpie jq
 #RUN luarocks install kong-upstream-jwt-extended
 #RUN apk update && apk add curl vim httpie jq
 COPY kong.yml kong.yml
+RUN chown kong:kong kong.yml
 #COPY csc_certs.sh /usr/local/openresty/bin/csc_certs.sh
 #RUN chmod u+x /usr/local/openresty/bin/csc_certs.sh
-RUN chown kong:kong kong.yml
 
 USER kong
 RUN which kong
